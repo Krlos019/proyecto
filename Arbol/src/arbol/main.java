@@ -1,6 +1,6 @@
 package arbol;
 import java.util.Scanner;
-public class Nodo {
+public class main {
     
   public static void main(String args [])
     {

@@ -5,109 +5,109 @@ import javax.swing.JOptionPane;
 public class Arbol {
 
     //miembros de acceso
-    Arbol nodoizquierdo;
-    int datos;
-    Arbol nododerecho;
+    Arbol izquierda;
+    int dato;
+    Arbol derecha;
      
-    //iniciar dato y hacer de este nodo un nodo hoja
+   
     public Arbol(int datosNodo)
     {
-        datos = datosNodo;
-        nodoizquierdo = nododerecho = null; //el nodo no tiene hijos
+        dato = datosNodo;
+        izquierda = derecha = null; 
     }
      
-    //buscar punto de insercion e inserter nodo nuevo
-    public  void insertar(int valorInsertar)
+    //Buscar punto de insercion e inserter nodo nuevo
+    public  void insertar(int valorIns)
     {
-        //insertar en subarbol izquierdo
-        if(valorInsertar < datos)
+        //Insertar en subarbol izquierdo
+        if(valorIns < dato)
         {
-            //insertar en subarbol izquierdo
-            if(nodoizquierdo == null)
-                nodoizquierdo = new Arbol(valorInsertar);
+            //Insertar en subarbol izquierdo
+            if(izquierda == null)
+                izquierda = new Arbol(valorIns);
             else    //continua recorriendo subarbol izquierdo
-                nodoizquierdo.insertar(valorInsertar);
+                izquierda.insertar(valorIns);
         }
          
-        //insertar nodo derecho
-        else if(valorInsertar > datos)
+        //Insertar nodo derecho
+        else if(valorIns > dato)
         {
-            //insertar nuevo nodoArbol
-            if(nododerecho == null)
-                nododerecho = new Arbol(valorInsertar);
+            //Insertar nuevo nodoArbol
+            if(derecha == null)
+                derecha = new Arbol(valorIns);
             else
-                nododerecho.insertar(valorInsertar);
+                derecha.insertar(valorIns);
         }
-    } // fin del metodo insertar
+    } 
 }  
 class Arboles
 {
     private Arbol raiz;
      
-    //construir un arbol vacio
+    //Construir  arbol vacio
     public Arboles()
     {
         raiz = null;
     }
      
-    //insertar un nuevo ndo en el arbol de busqueda binaria
+    
     public  void insertarNodo(int valorInsertar)
     {
         if(raiz == null)
-            raiz = new Arbol(valorInsertar); //crea nodo raiz
+            raiz = new Arbol(valorInsertar); 
         else
-            raiz.insertar(valorInsertar); //llama al metodo insertar        
+            raiz.insertar(valorInsertar);       
     }
      
-    // EMPIEZA EL RECORRIDO EN PREORDEN
+   
     public synchronized void recorridoPreorden()
     {
         ayudantePreorden(raiz);
     }
-    //meoto recursivo para recorrido en preorden
+    
      
     private void ayudantePreorden(Arbol nodo)
     {
         if(nodo == null)
             return;
          
-        System.out.print(nodo.datos + " ");     //mostrar datos del nodo
-        ayudantePreorden(nodo.nodoizquierdo);   //recorre subarbol izquierdo
-        ayudantePreorden(nodo.nododerecho);     //recorre subarbol derecho
+        System.out.print(nodo.dato + " ");     
+        ayudantePreorden(nodo.izquierda);   
+        ayudantePreorden(nodo.derecha);     
     }
      
-    //EMPEZAR RECORRIDO INORDEN
+    
     public synchronized void recorridoInorden()
     {
         ayudanteInorden(raiz);
     }
      
-    //meoto recursivo para recorrido inorden
+   
     private void ayudanteInorden( Arbol nodo)
     {
         if(nodo == null)
             return;
          
-        ayudanteInorden(nodo.nodoizquierdo);
-        System.out.print(nodo.datos + " ");
-        ayudanteInorden(nodo.nododerecho);
+        ayudanteInorden(nodo.izquierda);
+        System.out.print(nodo.dato + " ");
+        ayudanteInorden(nodo.derecha);
     }
      
-    //EMPEZAR RECORRIDO PORORDEN
+   
     public synchronized void recorridoPosorden()
     {
         ayudantePosorden(raiz);        
     }
      
-    //meotod recursivo para recorrido posorden
+   
     private void ayudantePosorden(Arbol nodo)
     {
         if( nodo == null )
             return;
          
-        ayudantePosorden(nodo.nodoizquierdo);
-        ayudantePosorden(nodo.nododerecho);
-        System.out.print(nodo.datos + " ");
+        ayudantePosorden(nodo.izquierda);
+        ayudantePosorden(nodo.derecha);
+        System.out.print(nodo.dato + " ");
         
     }
     

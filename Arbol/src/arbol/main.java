@@ -4,8 +4,9 @@ public class main {
     
   public static void main(String args [])
     {
-        Scanner teclado = new Scanner(System.in);
-        Arboles arbolito = new Arboles();
+         Arboles arbol = new Arboles();
+         /*Scanner teclado = new Scanner(System.in);
+       
         int valor;
         String Dato;
          
@@ -13,7 +14,8 @@ public class main {
 			
 			System.out.println("\nMENU DE LISTAS SIMPLES\n"
 					+ "1. Agregar \n"
-					+ "2. imprimir \n");
+					+ "2. imprimir \n"
+                                        + "3. imprimir hijo \n"                    );
 					
                         int opcion = teclado.nextInt();
                         
@@ -30,16 +32,16 @@ public class main {
            System.out.println("Dame el valor para colocar en el Arbol");
            valor =teclado.nextInt();
            System.out.print(valor + " ");
-            arbolito.insertarNodo(valor);
+            arbolito.insertar(valor);
 				break;
 			case 2:  System.out.println("\n\nRecorrido Preorden");
-        arbolito.recorridoPreorden();
+        arbolito.imprimePreorder();
          
         System.out.println("\n\nRecorrido Inorden");
-        arbolito.recorridoInorden();
+        arbolito.imprimeInorder();
          
         System.out.println("\n\nRecorrido Postorden");
-        arbolito.recorridoPosorden();
+        arbolito.imprimePosorder();
     
 			
 			break;
@@ -48,6 +50,25 @@ public class main {
 				break;
 			}
 		}
+    }  */
+  
+ arbol.insertar(5);
+ arbol.insertar(3);
+ arbol.insertar(9);
+ arbol.insertar(2);
+ arbol.insertar(4);
+ arbol.insertar(7);
+ arbol.insertar(11);
+ arbol.insertar(6);
+ arbol.insertar(8);
+    
+  arbol.imprimePreorder();    System.out.println("\n");
+  arbol.imprimeInorder();    System.out.println("\n");
+  arbol.imprimePosorder();    System.out.println("\n");
+  
+    System.out.println(arbol.buscaHijoIzq(5));
+    System.out.println(arbol.buscaHijoDer(5));
+  
     }
   
 }

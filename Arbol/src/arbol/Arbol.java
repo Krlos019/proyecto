@@ -3,21 +3,20 @@ package arbol;
 import javax.swing.JOptionPane;
 
 public class Arbol {
-
-    //miembros de acceso
-    Arbol izquierda;
+ Arbol izquierda;
     int dato;
     Arbol derecha;
      
    
-    public Arbol(int datosNodo)
+    public Arbol (int datosNodo)
     {
+      
         dato = datosNodo;
         izquierda = derecha = null; 
     }
      
     //Buscar punto de insercion e inserter nodo nuevo
-    public  void insertar(int valorIns)
+    public  void ordenar(int valorIns)
     {
         //Insertar en subarbol izquierdo
         if(valorIns < dato)
@@ -26,7 +25,7 @@ public class Arbol {
             if(izquierda == null)
                 izquierda = new Arbol(valorIns);
             else    //continua recorriendo subarbol izquierdo
-                izquierda.insertar(valorIns);
+                izquierda.ordenar(valorIns);
         }
          
         //Insertar nodo derecho
@@ -36,7 +35,7 @@ public class Arbol {
             if(derecha == null)
                 derecha = new Arbol(valorIns);
             else
-                derecha.insertar(valorIns);
+                derecha.ordenar(valorIns);
         }
     } 
 }  
@@ -51,65 +50,101 @@ class Arboles
     }
      
     
-    public  void insertarNodo(int valorInsertar)
+    public  void insertar(int valorInsertar)
     {
         if(raiz == null)
             raiz = new Arbol(valorInsertar); 
         else
-            raiz.insertar(valorInsertar);       
+            raiz.ordenar(valorInsertar);       
     }
      
    
-    public synchronized void recorridoPreorden()
+    public synchronized void imprimePreorder()
     {
-        ayudantePreorden(raiz);
+        preorder(raiz);
     }
     
      
-    private void ayudantePreorden(Arbol nodo)
+    private void preorder(Arbol nodo)
     {
         if(nodo == null)
             return;
          
         System.out.print(nodo.dato + " ");     
-        ayudantePreorden(nodo.izquierda);   
-        ayudantePreorden(nodo.derecha);     
+        preorder(nodo.izquierda);   
+        preorder(nodo.derecha);     
     }
      
     
-    public synchronized void recorridoInorden()
+    public synchronized void imprimeInorder()
     {
-        ayudanteInorden(raiz);
+        inorder(raiz);
     }
      
    
-    private void ayudanteInorden( Arbol nodo)
+    private void inorder( Arbol nodo)
     {
         if(nodo == null)
             return;
          
-        ayudanteInorden(nodo.izquierda);
+        inorder(nodo.izquierda);
         System.out.print(nodo.dato + " ");
-        ayudanteInorden(nodo.derecha);
+        inorder(nodo.derecha);
     }
      
    
-    public synchronized void recorridoPosorden()
+    public synchronized void imprimePosorder()
     {
-        ayudantePosorden(raiz);        
+        posorden(raiz);        
     }
      
    
-    private void ayudantePosorden(Arbol nodo)
+    private void posorden(Arbol nodo)
     {
         if( nodo == null )
             return;
          
-        ayudantePosorden(nodo.izquierda);
-        ayudantePosorden(nodo.derecha);
+        posorden(nodo.izquierda);
+        posorden(nodo.derecha);
         System.out.print(nodo.dato + " ");
         
     }
+ 
+       public Arbol buscar(int valor){
+    Arbol temp = raiz; 
+    Arbol aux = temp;
+         aux = raiz;
+        
+        while(aux.dato != valor){
+        
+            if(valor < aux.dato){
+            
+                aux = aux.izquierda;
+            
+            }else{
+                
+                aux = aux.derecha;
+            }
+            
+            if (aux==null){
+            
+                return null;
+            }
+        }
+        
+        return aux;
+    }
     
+   
+    
+    public int buscaHijoIzq(int valor){
+    
+        return buscar(valor).izquierda.dato;
+    }
+    
+    public int buscaHijoDer(int valor){
+    
+        return buscar(valor).derecha.dato;
+    }
 }
 

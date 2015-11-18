@@ -1,6 +1,6 @@
 package arbol;
 
-import javax.swing.JOptionPane;
+
 
 public class Arbol {
  Arbol izquierda;
@@ -16,26 +16,26 @@ public class Arbol {
     }
      
     //Buscar punto de insercion e inserter nodo nuevo
-    public  void ordenar(int valorIns)
+    public  void ordenar(int valorInsertar)
     {
         //Insertar en subarbol izquierdo
-        if(valorIns < dato)
+        if(valorInsertar < dato)
         {
             //Insertar en subarbol izquierdo
             if(izquierda == null)
-                izquierda = new Arbol(valorIns);
+                izquierda = new Arbol(valorInsertar);
             else    //continua recorriendo subarbol izquierdo
-                izquierda.ordenar(valorIns);
+                izquierda.ordenar(valorInsertar);
         }
          
         //Insertar nodo derecho
-        else if(valorIns > dato)
+        else if(valorInsertar > dato)
         {
             //Insertar nuevo nodoArbol
             if(derecha == null)
-                derecha = new Arbol(valorIns);
+                derecha = new Arbol(valorInsertar);
             else
-                derecha.ordenar(valorIns);
+                derecha.ordenar(valorInsertar);
         }
     } 
 }  

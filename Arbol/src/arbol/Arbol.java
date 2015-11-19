@@ -52,14 +52,15 @@ class Arboles
     
     public  void insertar(int valorInsertar)
     {
-        if(raiz == null)
-            raiz = new Arbol(valorInsertar); 
+        if(raiz == null) //Se toma el dato a ingresar X; Partiendo de la raíz preguntamos: Nodo == null
+
+            raiz = new Arbol(valorInsertar); //En caso afirmativo X pasa a ocupar el lugar del nodo y ya hemos ingresado nuestro primer dato.
         else
-            raiz.ordenar(valorInsertar);       
+            raiz.ordenar(valorInsertar);    //En caso contrario llamamos el metodo ordenar.   
     }
      
    
-    public synchronized void imprimePreorder()
+    public  void imprimePreorder()
     {
         preorder(raiz);
     }
@@ -76,7 +77,7 @@ class Arboles
     }
      
     
-    public synchronized void imprimeInorder()
+    public  void imprimeInorder()
     {
         inorder(raiz);
     }
@@ -93,7 +94,7 @@ class Arboles
     }
      
    
-    public synchronized void imprimePosorder()
+    public  void imprimePosorder()
     {
         posorden(raiz);        
     }

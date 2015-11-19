@@ -77,7 +77,7 @@ public class main {
   arbol.imprimePosorder();    System.out.println("\n");
   
   System.out.println(arbol.buscaHijoIzq(10));    
-  System.out.println(arbol.buscaHijoDer(7));    System.out.println("\n");
+  //System.out.println(arbol.buscaHijoDer(7));    System.out.println("\n");
   
   arbol.imprimePreorder();    System.out.println("\n");
   arbol.imprimeInorder();    System.out.println("\n");

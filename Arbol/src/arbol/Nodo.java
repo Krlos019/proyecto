@@ -108,7 +108,7 @@ class Arbol
         System.out.print(nodo.dato + " ");
         
     }
- 
+
        public Nodo buscar(int valor){
     Nodo temp = raiz; 
     Nodo aux = temp;

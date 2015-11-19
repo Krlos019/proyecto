@@ -165,10 +165,12 @@ class Arbol
             r = r.derecha;
             return r;
         }
+        //Este es el caso en el que el nodo tiene dos hijos
         r.dato = encontrarMaximo(r.izquierda);
         r = ajuste(r, r.izquierda, r);
         return r;
     }
+    //si no era el nodo que se queria borrar se aprobecha su ordenamiento
     if(elemento > r.dato){
     r.derecha=borrar(r.derecha, elemento);
     return r;
@@ -176,13 +178,15 @@ class Arbol
     r.izquierda=borrar(r.izquierda, elemento);
     return r;
     }
-    
+    // este metodo sirve para encontrar al nodo maximo
+    //nos ayudara para la eliminacion del nodo en el metodo borrar
     private int encontrarMaximo(Nodo r){
     if(r.derecha == null)
     return r.dato;
     return encontrarMaximo(r.derecha);
     
     }
+    //metodo que elimina el nodo repetido y ajusta el arbol
     private Nodo ajuste(Nodo padre, Nodo hijo, Nodo ances){
     if(hijo.derecha == null){
         if(padre.equals(ances)){
@@ -192,6 +196,7 @@ class Arbol
         padre.derecha = hijo.izquierda;
         return padre;
     }
+    //aqui se sigue buscando en los nodos de mayor valor
     hijo = ajuste(hijo, hijo.derecha, ances);
     if (padre.equals(ances))
         padre. izquierda = hijo;

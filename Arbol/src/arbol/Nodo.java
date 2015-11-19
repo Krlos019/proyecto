@@ -36,6 +36,7 @@ public class Nodo {
         }
     } 
 }  
+
 class Arbol
 {
      Nodo raiz;
@@ -124,9 +125,9 @@ class Arbol
                 aux = aux.derecha;
             }
             
-            if (aux==null){
+                if (aux == null){
             
-                return null;
+               return null;
             }
         }
         
@@ -144,7 +145,69 @@ class Arbol
     
         return buscar(valor).derecha.dato;
     }
+     
+    public void borrar(int elemento){
+    
+    raiz = borrar(this.raiz,elemento);
+    
+    }
+    private Nodo borrar (Nodo r, int elemento){
+    if (r.dato==elemento){
+        if(r.derecha == null && r.izquierda == null){
+            r = null;
+            return r;
+        }
+        if(r.derecha == null){
+            r = r.izquierda;
+            return r;
+        }
+        if(r.izquierda == null){
+            r = r.derecha;
+            return r;
+        }
+        r.dato = encontrarMaximo(r.izquierda);
+        r = ajuste(r, r.izquierda, r);
+        return r;
+    }
+    if(elemento > r.dato){
+    r.derecha=borrar(r.derecha, elemento);
+    return r;
+    }
+    r.izquierda=borrar(r.izquierda, elemento);
+    return r;
+    }
+    
+    private int encontrarMaximo(Nodo r){
+    if(r.derecha == null)
+    return r.dato;
+    return encontrarMaximo(r.derecha);
+    
+    }
+    private Nodo ajuste(Nodo padre, Nodo hijo, Nodo ances){
+    if(hijo.derecha == null){
+        if(padre.equals(ances)){
+        padre.izquierda=hijo.izquierda;
+        return padre;
+        }
+        padre.derecha = hijo.izquierda;
+        return padre;
+    }
+    hijo = ajuste(hijo, hijo.derecha, ances);
+    if (padre.equals(ances))
+        padre. izquierda = hijo;
+    else padre.derecha = hijo;
+    return padre;
+    }
+    
+    
 }
+    
+    
+    
+    
+    
+
+
         
         
         

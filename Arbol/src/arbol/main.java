@@ -5,10 +5,11 @@ public class main {
   public static void main(String args [])
     {
          Arbol arbol = new Arbol();
-         /*Scanner teclado = new Scanner(System.in);
+        /* Scanner teclado = new Scanner(System.in);
        
         int valor;
         String Dato;
+       
          
 		while(true) {
 			
@@ -17,7 +18,7 @@ public class main {
 					+ "2. imprimir \n"
                                         + "3. imprimir hijo \n"                    );
 					
-                        int opcion = teclado.nextInt();
+                       int opcion = teclado.nextInt();
                         
                                 
        
@@ -32,16 +33,16 @@ public class main {
            System.out.println("Dame el valor para colocar en el Arbol");
            valor =teclado.nextInt();
            System.out.print(valor + " ");
-            arbolito.insertar(valor);
+            arbol.insertar(valor);
 				break;
 			case 2:  System.out.println("\n\nRecorrido Preorden");
-        arbolito.imprimePreorder();
+        arbol.imprimePreorder();
          
         System.out.println("\n\nRecorrido Inorden");
-        arbolito.imprimeInorder();
+        arbol.imprimeInorder();
          
         System.out.println("\n\nRecorrido Postorden");
-        arbolito.imprimePosorder();
+        arbol.imprimePosorder();
     
 			
 			break;
@@ -50,25 +51,39 @@ public class main {
 				break;
 			}
 		}
-    }  */
+    } */ 
   
+ arbol.insertar(10);
  arbol.insertar(5);
- arbol.insertar(3);
- arbol.insertar(9);
- arbol.insertar(2);
- arbol.insertar(4);
+ arbol.insertar(15);
+ //arbol.insertar(3);
  arbol.insertar(7);
- arbol.insertar(11);
- arbol.insertar(6);
- arbol.insertar(8);
+ arbol.insertar(12);
+ arbol.insertar(20);
+ //arbol.insertar(6);
+ //arbol.insertar(8);
     
   arbol.imprimePreorder();    System.out.println("\n");
   arbol.imprimeInorder();    System.out.println("\n");
   arbol.imprimePosorder();    System.out.println("\n");
   
-    System.out.println(arbol.buscaHijoIzq(5));
-    System.out.println(arbol.buscaHijoDer(5));
+   // System.out.println(arbol.buscaHijoIzq(5));    
+    //System.out.println(arbol.buscaHijoDer(5));    
+    
+    arbol.borrar(5);
+    
+    arbol.imprimePreorder();    System.out.println("\n");
+  arbol.imprimeInorder();    System.out.println("\n");
+  arbol.imprimePosorder();    System.out.println("\n");
+  
+  System.out.println(arbol.buscaHijoIzq(10));    
+  System.out.println(arbol.buscaHijoDer(7));    System.out.println("\n");
+  
+  arbol.imprimePreorder();    System.out.println("\n");
+  arbol.imprimeInorder();    System.out.println("\n");
+  arbol.imprimePosorder();    System.out.println("\n");
+    
   
     }
-  
 }
+  

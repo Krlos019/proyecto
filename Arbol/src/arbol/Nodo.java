@@ -1,14 +1,11 @@
 package arbol;
-
-
-
-public class Arbol {
- Arbol izquierda;
+public class Nodo {
+    Nodo izquierda;
     int dato;
-    Arbol derecha;
+    Nodo derecha;
      
    
-    public Arbol (int datosNodo)
+    public Nodo (int datosNodo)
     {
       
         dato = datosNodo;
@@ -23,7 +20,7 @@ public class Arbol {
         {
             //Insertar en subarbol izquierdo
             if(izquierda == null)
-                izquierda = new Arbol(valorInsertar);
+                izquierda = new Nodo(valorInsertar);
             else    //continua recorriendo subarbol izquierdo
                 izquierda.ordenar(valorInsertar);
         }
@@ -33,18 +30,18 @@ public class Arbol {
         {
             //Insertar nuevo nodoArbol
             if(derecha == null)
-                derecha = new Arbol(valorInsertar);
+                derecha = new Nodo(valorInsertar);
             else
                 derecha.ordenar(valorInsertar);
         }
     } 
 }  
-class Arboles
+class Arbol
 {
-    private Arbol raiz;
+     Nodo raiz;
      
     //Construir  arbol vacio
-    public Arboles()
+    public Arbol()
     {
         raiz = null;
     }
@@ -54,7 +51,7 @@ class Arboles
     {
         if(raiz == null) //Se toma el dato a ingresar X; Partiendo de la raíz preguntamos: Nodo == null
 
-            raiz = new Arbol(valorInsertar); //En caso afirmativo X pasa a ocupar el lugar del nodo y ya hemos ingresado nuestro primer dato.
+            raiz = new Nodo(valorInsertar); //En caso afirmativo X pasa a ocupar el lugar del nodo y ya hemos ingresado nuestro primer dato.
         else
             raiz.ordenar(valorInsertar);    //En caso contrario llamamos el metodo ordenar.   
     }
@@ -66,7 +63,7 @@ class Arboles
     }
     
      
-    private void preorder(Arbol nodo)
+    private void preorder(Nodo nodo)
     {
         if(nodo == null)
             return;
@@ -83,7 +80,7 @@ class Arboles
     }
      
    
-    private void inorder( Arbol nodo)
+    private void inorder( Nodo nodo)
     {
         if(nodo == null)
             return;
@@ -100,7 +97,7 @@ class Arboles
     }
      
    
-    private void posorden(Arbol nodo)
+    private void posorden(Nodo nodo)
     {
         if( nodo == null )
             return;
@@ -111,9 +108,9 @@ class Arboles
         
     }
  
-       public Arbol buscar(int valor){
-    Arbol temp = raiz; 
-    Arbol aux = temp;
+       public Nodo buscar(int valor){
+    Nodo temp = raiz; 
+    Nodo aux = temp;
          aux = raiz;
         
         while(aux.dato != valor){
@@ -148,4 +145,15 @@ class Arboles
         return buscar(valor).derecha.dato;
     }
 }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+
 

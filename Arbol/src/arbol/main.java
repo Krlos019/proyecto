@@ -4,7 +4,7 @@ public class main {
     
   public static void main(String args [])
     {
-         Arboles arbol = new Arboles();
+         Arbol arbol = new Arbol();
          /*Scanner teclado = new Scanner(System.in);
        
         int valor;
@@ -72,5 +72,3 @@ public class main {
     }
   
 }
-        
-      
